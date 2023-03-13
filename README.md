@@ -1,3 +1,3 @@
-# seminar-thesis-on-concolic-execution
+# Dynamic symbolic execution (concolic execution)
 
 [Report pdf](seminar.pdf)
