@@ -143,6 +143,31 @@ compare random,  concolic,  andhybrid concolic testing on the VIM text editor (1
 \subsection{2008: Heuristics for Scalable Dynamic Test Generation}
 
 \subsubsection{Gist:}
+several  such  heuristic  search  strategies,  including  anovel strategy guided by the control flow graph of the programunder test. 
+
+\subsubsection{Methodlogy:}
+We  propose  a  search  strategy  that  is  guided  by  the  staticstructure  of  the  program  under  test,  namely  the  control  flowgraph  (CFG).  In  this  strategy,  we  choose  branches  to  negatefor  the  purpose  of  test  generation  based  on  their  distance  inthe CFG to currently uncovered branches. We experimentallyshow  that  this  greedy  approach  to  maximizing  the  branchcoverage helps to improve such coverage faster, and to achievegreater   final   coverage,   than   the   default   depth-first   searchstrategy of concolic testing.We further propose two random search strategies. While intraditional random testing a program is run on random inputs,these  two  strategies  test  a  program  along  random  executionpaths. The second attempts to sample uniformly from the spaceof possible program paths, while the third is a variant we havefound to be more effective in practice
+
+have implemented these search strategies in CREST, anopen-source prototype test generation tool for C
+
+\subsubsection{Configurability part:}
+We have implemented these strategies in CREST, ouropen source concolic testing tool for C, and evaluated them on twowidely-used software tools, grep 2.2 (15K lines of code) and Vim5.7 (150K lines). On these benchmarks, the presented heuristicsachieve significantly greater branch coverage on the same testingbudget than concolic testing with a traditional depth-first searchstrategy.
+
+
+% ------------------------------
+\subsection{2009: Fitness-Guided Path Exploration in Dynamic Symbolic Execution}
+
+\subsubsection{Gist:}
+To address the space-explosion  issue  in  path  exploration,  we  propose  a  novelapproach called Fitnex, a search strategy that uses state-dependent fitness values (computed through a fitness func-tion) to guide path exploration.  The fitness function mea-sures how close an already discovered feasible path is toa  particular  test  target  (e.g.,  covering  a  not-yet-coveredbranch).   Our new fitness-guided search strategy is  inte-grated with other strategies that are effective for explorationproblems where the fitness heuristic fails.
+
+\subsubsection{Methodlogy:}
+The core of our approach is the Fitnex search strat-egy guided by fitness values computed with a fitness func-tion (Section 4.1).  To deal with program branches notamenable to a fitness function, our approach includes in-tegration of the Fitnex strategy with other search strategies(Section 4.2)
+
+A fitness function (Section 4.1.1) gives a measurementon how close an explored path is to achieving a test tar-get (e.g., covering a not-yet-covered branch). We computea fitness value for each already explored path and priori-tize these known paths based on their fitness values (Sec-tion 4.1.2). We compute a fitness gain for each branch in theprogram under test and prioritize branching nodes based ontheir corresponding branches’ fitness gains (Section 4.1.3).During path exploration, we give higher priority to flippinga branching node with a better (higher) fitness gain in a pathwith a better (lower) fitness value (Section 4.1.4).
+
+% ------------------------------
+\subsection{<<paper>>}
+\subsubsection{Gist:}
 
 \subsubsection{Methodlogy:}
 
@@ -150,9 +175,9 @@ compare random,  concolic,  andhybrid concolic testing on the VIM text editor (1
 
 \subsubsection{Result:}
 
+
 % ------------------------------
 \subsection{<<paper>>}
-
 \subsubsection{Gist:}
 
 \subsubsection{Methodlogy:}
