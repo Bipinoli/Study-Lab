@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.13)  18 MAR 2023 17:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.13)  18 MAR 2023 17:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -378,12 +378,17 @@ Overfull \hbox (8.41788pt too wide) in paragraph at lines 158--159
  []\OT1/cmr/bx/n/10 Configurability part:[] \OT1/cmr/m/n/10 We have im-ple-mented these strate-gies in CREST, ouropen
  []
 
-[5] [6] [7] [8]
-Overfull \hbox (0.90508pt too wide) in paragraph at lines 237--239
+[5] [6] [7] [8] [9]
+Overfull \hbox (6.20914pt too wide) in paragraph at lines 239--240
+[]\TS1/cmr/m/n/10 ˆ\OT1/cmr/m/n/10 Efficient repet-i-tive test-ing and con-crete environ-ment.The ef-fi-ciency ofQSYM-
+ []
+
+[10]
+Overfull \hbox (0.90508pt too wide) in paragraph at lines 270--272
 \OT1/cmr/m/n/10 see ralated work sec-tion of https://dl.acm.org/doi/pdf/10.1145/2635868.2635872
  []
 
-[9] (./seminar.bbl [10]
+[11] (./seminar.bbl [12]
 Underfull \hbox (badness 1173) in paragraph at lines 61--65
 []\OT1/cmr/m/n/9 Sabbaghi, A., Rashidy Kanan, H., Key-van-pour, M.R.: Fsct: A new fuzzy
  []
@@ -393,23 +398,23 @@ Underfull \hbox (badness 2401) in paragraph at lines 61--65
 \OT1/cmr/m/n/9 search strat-egy in con-colic test-ing. In-for-ma-tion and Soft-ware Tech-nol-ogy
  []
 
-) [11] (./seminar.aux)
+) [13] (./seminar.aux)
 Package rerunfilecheck Info: File `seminar.out' has not changed.
 (rerunfilecheck)             Checksum: FC5D04DC9C51AC6B8071F8A71498BC5E;594.
  ) 
 Here is how much of TeX's memory you used:
- 9982 strings out of 477984
- 160419 string characters out of 5838479
- 1861388 words of memory out of 5000000
- 29967 multiletter control sequences out of 15000+600000
- 519081 words of font info for 59 fonts, out of 8000000 for 9000
+ 9998 strings out of 477984
+ 160610 string characters out of 5838479
+ 1862388 words of memory out of 5000000
+ 29970 multiletter control sequences out of 15000+600000
+ 519416 words of font info for 60 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,6n,76p,2377b,596s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on seminar.pdf (11 pages, 139593 bytes).
+ 75i,6n,76p,2377b,594s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </Users/bipinoli/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></Users/bipinoli/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on seminar.pdf (13 pages, 146396 bytes).
 PDF statistics:
- 216 PDF objects out of 1000 (max. 8388607)
- 170 compressed objects within 2 object streams
- 81 named destinations out of 1000 (max. 500000)
+ 243 PDF objects out of 1000 (max. 8388607)
+ 193 compressed objects within 2 object streams
+ 93 named destinations out of 1000 (max. 500000)
  9 words of extra memory for PDF output out of 10000 (max. 10000000)
 
