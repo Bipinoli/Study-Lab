@@ -78,9 +78,11 @@ The main idea of concolic testing is to execute the programsimultaneously  with 
 	\item Where did it start?
 	\item How does it work?
 	\item Give an example
-	\item Why is it important?
+	\item Why is it important? (give example of use in configurable systems)
 	\item It's contributions
-	\item It's limitations
+	\item It's limitations (give context to configurable system with many branches)
+	One  of  the  biggest  challenges  in  concolic  testing  is  thatthere  are  often  too  many  branches  to  select  for  the  nextinput.  This is referred to as thepath explosionproblem [10,11, 3].  The number of paths in the execution tree increasesexponentially with the number of branches in the program.Visiting only the top twenty branches in the execution treein a breadth first search (BFS) order requires more than onemillion concolic runs (220).  However, programs usually havefar more than twenty branches,  for example,  an executionpath  ofgrep,  a  15K  line  of  code  program,  contains  morethan  8,000  branches.   Therefore,  exploring  all  paths  in  anexecution tree in a reasonable amount of time is not feasible.
+
 	\item Example of the use of this technique in finding bugs in configurable system eg result of SAGE, EXE, etc.
 \end{itemize}
 
@@ -186,10 +188,36 @@ We  attacked  the  path-explosion  problem  of  concolic  test-ing  by  pruning 
 While moststrategies  focus  on  coverage  information  in  the  branch  se-lection process, we introduce CGS which considers contextinformation, that is, how the execution reaches the branch.Our  evaluation  results  show  that  CGS  outperforms  otherstrategies. 
 
 \subsubsection{Methodlogy:}
+CGS explores branches in the current execution tree.  Foreach visited branch, CGSexaminesthe branch and decideswhether toselectthe branch for the next input orskipit. CGS looks athow the execution reaches the current branch by calculat-ingk-contextof the branch from its preceding branches anddominator information. Then, thek-contextis comparedwith  the  context  of  previously  selected  branches  which  isstored  in  thecontext  cache.   If  thek-contextis  new,  thebranch is selected for the next input.  Otherwise, CGS skipsthe branch.
 
 \subsubsection{Configurability part:}
+We evaluate CGS on top of two publicly available concolictesting tools, CREST [13] and CarFastTool [29]
 
-\subsubsection{Result:}
+
+% ------------------------------
+\subsection{2018: Automatically Generating Search Heuristics for Concolic Testing}
+\subsubsection{Gist:}
+developed a parame-terized search heuristic for concolic testing with an optimizationalgorithm to efficiently search for good parameter values. We hopethat our technique can supplant the laborious and less rewardingtask of manually tuning search heuristics of concolic testing.
+
+\subsubsection{Methodlogy:}
+this paper presents a new approachthat automatically generates search heuristics for concolic testing.To this end, we use two key ideas. First, we define aparameterizedsearch heuristic, which creates a large class of search heuristics.The parameterized heuristic reduces the problem of designing agood search heuristic into a problem of finding a good parametervalue. Second, we present a search algorithm specialized to concolictesting. The search space that the parameterized heuristic poses isintractably large. Our algorithm effectively guides the search byiteratively refining the search space based on the feedback fromprevious runs of concolic testing
+
+\subsubsection{Configurability part:}
+We have implemented our techniquein CREST [3] and evaluated it on 10 C programs (0.5–150KLoC)
+
+% ------------------------------
+\subsection{2018: Template-Guided Concolic Testing via Online Learning}
+\subsubsection{Gist:}
+a template is a partially symbolized inputvector whose job is to reduce the search space. However, choos-ing a right set of templates is nontrivial and significantly affectsthe final performance of our approach. We present an algorithmthat automatically learns useful templates online, based on datacollected from previous runs of concolic testing. The experimen-tal results with open-source programs show that our techniqueachieves greater branch coverage and finds bugs more effectivelythan conventional concolic testing
+
+In our approach, concolictesting uses a set of templates to exploit common input patterns that improve coverage effectively, where the templates are automat-ically generated through online learning algorithm based on thefeedback from past runs of concolic testing.
+
+\subsubsection{Methodlogy:}
+we present template-guided concolic testing, a newtechnique for adaptively reducing the search space of concolic test-ing. The key idea is to guide concolic testing with templates, whichrestrict the input space by selectively generating symbolic variables.Unlike conventional concolic testing that tracks all input valuessymbolically, our technique treats a set of selected input valuesas symbolic and fixes unselected inputs with particular concreteinputs, thereby reducing the original search space. A challenge,however, is choosing input values to track symbolically and replac-ing the remaining inputs with appropriate values. To address thischallenge, we develop an algorithm that performs concolic testingwhile automatically generating, using, and refining templates. Thealgorithm is based on two key ideas. First, by using the sequentialpattern mining [9], we generate the candidate templates from a setof effective test-cases, where the test-cases contribute to improvingcode coverage and are collected while conventional concolic test-ing is performed. Second, we use an algorithm that learns effectivetemplates from the candidates during concolic testing. Our algo-rithm iteratively ranks the candidates based on the effectivenessof templates that were evaluated in the previous runs. Our tech-nique is orthogonal to the existing techniques and can be fruitfullycombined with them, in particular with the state-of-the-art searchheuristics
+
+\subsubsection{Configurability part:}
+Experimental results show that our approach outperforms con-ventional concolic testing in term of branch coverage and bug-finding. We have implemented our approach in CREST [7] andcompared our technique with conventional concolic testing foropen-source C programs of medium size (up to 165K LOC). For allbenchmarks, our technique achieves significantly higher branchcoverage compared to conventional concolic testing. For example,for vim-5.7, we have performed both techniques for 70 hours, whereour technique exclusively covered 883 branches that conventionalconcolic testing failed to reach. Our technique also succeeded infinding real bugs that can be triggered in the latest versions of threeopen-source C programs: sed-4.4, grep-3.1 and gawk-4.21.
+
 
 
 % ------------------------------
@@ -208,6 +236,10 @@ While moststrategies  focus  on  coverage  information  in  the  branch  se-lect
 \section{Different catagorical bodies}
 see ralated work section of https://dl.acm.org/doi/pdf/10.1145/2635868.2635872
 i.e A Context-Guided Search Strategy inConcolic Testing paper
+
+also of https://dl.acm.org/doi/pdf/10.1145/3180155.3180166
+i.e 2018: Automatically Generating Search Heuristics for Concolic Testing paper
+
 \begin{itemize}
 	\item summerize, give an overview of the main points of each source and combine them into a coherent whole
 	\item Analyze and interpret: don’t just paraphrase other researchers—add your own interpretations where possible, discussing the significance of findings in relation to the literature as a whole
