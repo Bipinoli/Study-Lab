@@ -127,6 +127,22 @@ showing  that  auto-matic  software  partitioning  can  significantly  increase 
 \subsection{2007: Hybrid concolic testing (**)}
 
 \subsubsection{Gist:}
+an algorithm that in-terleaves random testing with concolic execution to obtainboth a deep and a wide exploration of program state space.Our algorithm generates test inputs automatically by inter-leaving  random  testing  until  saturation  with  bounded  ex-haustive  symbolic  exploration  of  program  points.   It  thuscombines the ability of random search to reachdeeppro-gram states quickly together with the ability of concolic test-ing to explore states in a neighborhood exhaustively. 
+
+\subsubsection{Methodlogy:}
+presenthybrid concolic testing, a simple algorithmthat  interleaves  the  application  of  random  tests  with  con-colic  testing  to  achieve  deep  and  wide  exploration  of  theprogram  state  space.   From  the  initial  program  state,  hy-brid  concolic  testing  starts  by  performing  random  testingto improve coverage.  When random testingsaturates, thatis,  does  not  produce  any  new  coverage  points  after  run-ning  some  predetermined  number  of  steps,  the  algorithmautomatically switches to concolic executionfrom the cur-rent program stateto perform an exhaustive bounded depthsearch for an uncovered coverage point.  As soon as one isfound,  the algorithm reverts back to concrete mode.   Theinterleaving of random testing and concolic execution thususes both the capacity of random testing to inexpensivelygenerate deep program states through long program execu-tions and the capability of concolic testing to exhaustivelyand symbolically search for new paths with a limited looka-head.
+
+The interleaving of random and symbolic techniques isthe crucial insight that distinguishes hybrid concolic testingfrom a naive approach that simply runs random and con-colic tests in parallel on a program.  This is because manyprograms show behaviors where the program must reach aparticular statesand then follow a precise sequence of in-put events 'alpha' order to get to a required coverage point.It  is  often  easy  to  reachsusing  random  testing,  but  notthen to generate the precise sequence of events 'alpha'.  On theother hand, while it is usually easy for concolic testing togenerate 'sigma', concolic testing gets stuck in exploring a hugenumber of program paths before even reaching the states.
+
+In the end, hybrid concolic testing has the same limita-tions of symbolic execution based test generation:  the dis-covery of uncovered points depends on the scalability andexpressiveness of the constraint solver, and the exhaustivesearch  for  uncovered  points  is  limited  by  the  number  ofpaths to be explored. Therefore, in general, hybrid concolictesting may not achieve 100 percent coverage, although it can im-prove random testing considerably. Further, the algorithmisnot a panacea for all software quality issues. While we pro-vide an automatic mechanism for test input generation, allthe other effort required in testing, for example, test oraclegeneration, assertion based verification, and mock environ-ment creation still have to be performed as with any othertest input generation algorithm.  Further, we look for codecoverage,  which may or may not be an indicator of codereliability.
+
+\subsubsection{Configurability part:}
+compare random,  concolic,  andhybrid concolic testing on the VIM text editor (150K linesof C code) and on an implementation of the red-black treedata structure. Our experiments indicate that for a fixed test-ing budget, hybrid concolic testing technique outperformsboth random and concolic in terms of branch coverage. of the state space exhaustively. In contrast, hybrid concolictesting switches to inexpensive random test-ing as soon as it identifiessomeuncovered point, relying onfast random testing to explore as much of the state space aspossible.  In this way, it avoids expensive constraint solv-ing to perform exhaustive search in some part of the statespace. Moreover, if random testing does not hit a new cov-erage point, it can take advantage of the locally exhaustivesearch provided by concolic testing to continue from a newcoverage point
+
+% ------------------------------
+\subsection{2008: Heuristics for Scalable Dynamic Test Generation}
+
+\subsubsection{Gist:}
 
 \subsubsection{Methodlogy:}
 
