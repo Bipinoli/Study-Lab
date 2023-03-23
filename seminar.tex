@@ -252,6 +252,29 @@ adapting search heuristics on the fly via an algorithm that learns new search he
 \subsubsection{Methodlogy:}
 we present an algorithm that automaticallylearns and switches search heuristics during concolic testing. Thealgorithm maintains a set of search heuristics and continuouslychanges them during the testing process. To do so, we first definethe space of possible search heuristics using the idea of parametricsearch heuristic recently proposed in prior work [5]. A technicalchallenge is how to adaptively switch search heuristics in the pre-defined space. We address this challenge with a new concolic testingalgorithm that (1) accumulates the knowledge about the previouslyevaluated search heuristics, (2) learns the probabilistic distributionsof the effective and ineffective search heuristics from the accumu-lated knowledge, and (3) samples a new set of search heuristics from the distributions. The algorithm iteratively performs thesethree steps until it exhausts a given time budget.
 
+% ------------------------------
+\subsection{2022: Dr.PathFinder: hybrid fuzzing with deep reinforcement concolic
+execution toward deeper path-first search}
+
+\subsubsection{Gist:}
+propose a concolic execution algorithm that combines deep reinforcement learning with a hybrid fuzzing
+solution, Dr.PathFinder. When the reinforcement learning agent encounters a branch during concolic execution, it evaluates the state and determines the search path. In this process,‘‘shallow’’ paths are pruned, and ‘‘deep’’ paths are searched
+first. This reduces unnecessary exploration, allowing the efficient memory usage and alleviating the state explosion
+problem.
+
+\subsubsection{Methodlogy:}
+We formally define a learning algorithm for a deep
+reinforcement learning agent that allows concolic
+execution to first search for a deeper path.
+
+We present a deeper path-first search concolic execution algorithm using a reinforcement learning agent and
+a hybrid fuzzer called Dr.PathFinder.
+
+\subsubsection{Result:}
+In experiments with the CB-multios dataset for deep bug cases, Dr.PathFinder discovered approximately five
+times more bugs than AFL and two times more than Driller-AFL. In addition to finding more bugs, Dr.PathFinder
+generated 19 times fewer test cases and used at least 2% less memory than Driller-AFL. While it performed well in finding
+bugs located in deep paths, Dr.PathFinder had limitation to find bugs located at shallow paths, which we discussed.
 
 % ------------------------------
 \subsection{<<paper>>}
