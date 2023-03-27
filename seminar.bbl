@@ -17,6 +17,11 @@ Cha, S., Hong, S., Lee, J., Oh, H.: Automatically generating search heuristics
   for concolic testing. In: Proceedings of the 40th International Conference on
   Software Engineering. pp. 1244--1254 (2018)
 
+\bibitem{cha2018template}
+Cha, S., Lee, S., Oh, H.: Template-guided concolic testing via online learning.
+  In: Proceedings of the 33rd ACM/IEEE International Conference on Automated
+  Software Engineering. pp. 408--418 (2018)
+
 \bibitem{adapt2019heuristic}
 Cha, S., Oh, H.: Concolic testing with adaptively changing search heuristics.
   In: Proceedings of the 2019 27th ACM Joint Meeting on European Software
@@ -27,6 +32,11 @@ Cha, S., Oh, H.: Concolic testing with adaptively changing search heuristics.
 Chakrabarti, A., Godefroid, P.: Software partitioning for effective automated
   unit testing. In: Proceedings of the 6th ACM \& IEEE International conference
   on Embedded software. pp. 262--271 (2006)
+
+\bibitem{fumarola2016clofast}
+Fumarola, F., Lanotte, P.F., Ceci, M., Malerba, D.: Clofast: closed sequential
+  pattern mining using sparse and vertical id-lists. Knowledge and Information
+  Systems  48,  429--463 (2016)
 
 \bibitem{godefroid2007compositional}
 Godefroid, P.: Compositional dynamic test generation. In: Proceedings of the
