@@ -76,6 +76,12 @@ Seo, H., Kim, S.: How we get there: A context-guided search strategy in
   concolic testing. In: Proceedings of the 22nd ACM SIGSOFT International
   Symposium on Foundations of Software Engineering. pp. 413--424 (2014)
 
+\bibitem{tang2015holistic}
+Tang, C., Kooburat, T., Venkatachalam, P., Chander, A., Wen, Z., Narayanan, A.,
+  Dowell, P., Karl, R.: Holistic configuration management at facebook. In:
+  Proceedings of the 25th symposium on operating systems principles. pp.
+  328--343 (2015)
+
 \bibitem{wang2018towards}
 Wang, X., Sun, J., Chen, Z., Zhang, P., Wang, J., Lin, Y.: Towards optimal
   concolic testing. In: Proceedings of the 40th International Conference on
