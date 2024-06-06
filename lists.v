@@ -71,8 +71,6 @@ Proof. reflexivity. Qed.
 
 
 
-(* ############### Proofs ##################### *)
-
 Theorem nil_append:
  forall lst : natlist, [] ++ lst = lst.
 Proof. reflexivity. Qed.
@@ -102,6 +100,25 @@ Fixpoint reverse (lst: natlist): natlist :=
 Example test_reverse: reverse [1,2,3,4] = [4,3,2,1].
 Proof. reflexivity. Qed.
 
+
+
+Inductive natoption: Type :=
+ | None
+ | Some (n: nat).
+
+
+Fixpoint nth_item (lst: natlist) (n: nat): natoption :=
+ match lst with 
+ | nil => None
+ | cons a lst' => match n with
+                  | O => Some a
+                  | S k => nth_item lst' k
+                  end
+ end.
+
+
+Example test_nth_item : nth_item [1,2,3,4,5] 4 = Some 5.
+Proof. reflexivity. Qed.
 
 
 
