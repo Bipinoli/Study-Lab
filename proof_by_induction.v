@@ -22,7 +22,7 @@ Abort.
 
 
 (** proof by induction **)
-Theorem add_0_induction:
+Theorem add_0_right_induction:
  forall n: nat, n + 0 = n.
 Proof.
  intros n. induction n as [ | n' inductive_hypo].
@@ -53,3 +53,52 @@ Proof.
  - (* inductive case *) 
     simpl. rewrite -> induc_hypo. reflexivity.
 Qed.
+
+
+Lemma plus_a_Sb_lemma: 
+ forall a b: nat, S (a + b) = a + S b.
+(** let's just assume the lemma to be true **)
+Proof. Admitted.
+
+
+Theorem plus_commutative_unproven_lemma:
+ forall a b: nat, a + b = b + a.
+Proof.
+ intros a b. induction a as [ | n' hypothesis].
+ - (* base case: 0 + b = b + 0 *)
+   simpl. rewrite -> add_0_right_induction. reflexivity. 
+ - (* inductive case: n' + b = b + n' => S n' + b = b + S n' *)
+   simpl. rewrite -> hypothesis. rewrite -> plus_a_Sb_lemma.
+   reflexivity.
+Qed.
+
+
+
+Lemma plus_n_Sm_lemma: 
+ forall n m: nat, S (n + m) = n + S m.
+Proof.
+ intros n m. induction n as [ | n' hypothesis].
+ - (* base case: S ( 0 + m ) = 0 + S m *)
+   simpl. reflexivity.
+ - (* inductive case: S (n' + m) = n' + Sm => S (S n' + m) = S n' + S m *)
+   simpl. rewrite -> hypothesis. reflexivity.
+Qed.
+
+
+Theorem plus_commutative_proven_lemma:
+ forall a b: nat, a + b = b + a.
+Proof.
+ intros a b. induction a as [ | n' hypothesis].
+ - (* base case: 0 + b = b + 0 *)
+   simpl. rewrite -> add_0_right_induction. reflexivity. 
+ - (* inductive case: n' + b = b + n' => S n' + b = b + S n' *)
+   simpl. rewrite -> hypothesis. rewrite -> plus_n_Sm_lemma.
+   reflexivity.
+Qed.
+
+
+
+
+
+
+
