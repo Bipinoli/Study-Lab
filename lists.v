@@ -70,3 +70,46 @@ Example test_tail: tail [1 , 2 , 3] = [2 , 3].
 Proof. reflexivity. Qed.
 
 
+
+(* ############### Proofs ##################### *)
+
+Theorem nil_append:
+ forall lst : natlist, [] ++ lst = lst.
+Proof. reflexivity. Qed.
+
+
+Theorem list_associativity: 
+ forall lst1 lst2 lst3: natlist,
+ (lst1 ++ lst2) ++ lst3 = lst1 ++ (lst2 ++ lst3).
+Proof.
+ intros lst1 lst2 lst3.
+ induction lst1 as [ | head1 tail1 hypothesis].
+ - simpl. reflexivity. (* base case: lst1 = nil *)
+ - (* inductive case *)
+   Set Printing Parentheses.
+   simpl. rewrite -> hypothesis. reflexivity.
+Qed.
+
+
+
+Fixpoint reverse (lst: natlist): natlist := 
+ match lst with
+ | nil => nil
+ | cons a lst' => reverse lst' ++ [a]
+ end.
+
+
+Example test_reverse: reverse [1,2,3,4] = [4,3,2,1].
+Proof. reflexivity. Qed.
+
+
+
+
+
+
+
+
+
+
+
+
